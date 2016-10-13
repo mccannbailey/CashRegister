@@ -18,14 +18,19 @@ namespace cash_register
         const double timbs = 100;
         const double tax = 1.13;
         const double taxmultiplier = 0.13;
+        double total;
+        double tender;
+        string change;
+        string tenderinput;
         int shirtcounter = 0;
         int jeancounter = 0;
         int bandanacounter = 0;
         int timbscounter = 0;
 
+
         public Form1()
         {
-        InitializeComponent();    
+            InitializeComponent();
         }
         private void shirtbutton_Click(object sender, EventArgs e)
         {
@@ -64,10 +69,32 @@ namespace cash_register
             string taxalone = taxbefore.ToString("C");
             taxlabel.Text = "Tax: " + taxalone;
 
-            double total = subtotaldouble * tax;
+            total = subtotaldouble * tax;
             string grandtotal = total.ToString("C");
             grandtotallabel.Text = "Grand Total: " + grandtotal;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                tenderinput = tenderbox.Text;
+                tender = Convert.ToDouble(tenderinput);
+                double totalprice = Convert.ToDouble(total);
+                double changedouble = tender - totalprice;
+                string change = changedouble.ToString("C");
+                changelabel.Text = "Change: " + change;
+            }
+            catch
+            {
+                changelabel.Text = "Error, did you enter\na number?";
+            }
+            if (tender < total)
+            {
+                changelabel.Text = "Not enough funds!";
+            }
+        }
     }
 }
+
 

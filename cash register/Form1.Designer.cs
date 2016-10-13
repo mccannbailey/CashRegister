@@ -48,9 +48,10 @@
             this.taxlabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.grandtotallabel = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tenderbox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.changelabel = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // titlelabel
@@ -257,12 +258,12 @@
             this.grandtotallabel.TabIndex = 22;
             this.grandtotallabel.Text = "Grand Total:";
             // 
-            // textBox1
+            // tenderbox
             // 
-            this.textBox1.Location = new System.Drawing.Point(205, 284);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(99, 20);
-            this.textBox1.TabIndex = 23;
+            this.tenderbox.Location = new System.Drawing.Point(205, 284);
+            this.tenderbox.Name = "tenderbox";
+            this.tenderbox.Size = new System.Drawing.Size(99, 20);
+            this.tenderbox.TabIndex = 23;
             // 
             // label2
             // 
@@ -274,14 +275,24 @@
             this.label2.TabIndex = 24;
             this.label2.Text = "Tender:";
             // 
-            // label3
+            // changelabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(139, 307);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(0, 16);
-            this.label3.TabIndex = 25;
+            this.changelabel.AutoSize = true;
+            this.changelabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.changelabel.Location = new System.Drawing.Point(137, 352);
+            this.changelabel.Name = "changelabel";
+            this.changelabel.Size = new System.Drawing.Size(0, 16);
+            this.changelabel.TabIndex = 25;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(205, 311);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(100, 23);
+            this.button1.TabIndex = 26;
+            this.button1.Text = "Calculate Change";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
@@ -289,9 +300,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(733, 388);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.changelabel);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tenderbox);
             this.Controls.Add(this.grandtotallabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.taxlabel);
@@ -341,9 +353,10 @@
         private System.Windows.Forms.Label taxlabel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label grandtotallabel;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tenderbox;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label changelabel;
+        private System.Windows.Forms.Button button1;
     }
 }
 
