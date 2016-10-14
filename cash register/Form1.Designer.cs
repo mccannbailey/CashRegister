@@ -52,6 +52,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.changelabel = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.emptycartbutton = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // titlelabel
@@ -294,12 +296,34 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // emptycartbutton
+            // 
+            this.emptycartbutton.Location = new System.Drawing.Point(13, 280);
+            this.emptycartbutton.Name = "emptycartbutton";
+            this.emptycartbutton.Size = new System.Drawing.Size(102, 23);
+            this.emptycartbutton.TabIndex = 27;
+            this.emptycartbutton.Text = "Empty Cart";
+            this.emptycartbutton.UseVisualStyleBackColor = true;
+            this.emptycartbutton.Click += new System.EventHandler(this.emptycartbutton_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(548, 9);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(197, 23);
+            this.button2.TabIndex = 28;
+            this.button2.Text = "Purchase and Print Receipt";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(733, 388);
+            this.ClientSize = new System.Drawing.Size(811, 388);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.emptycartbutton);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.changelabel);
             this.Controls.Add(this.label2);
@@ -357,6 +381,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label changelabel;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button emptycartbutton;
+        private System.Windows.Forms.Button button2;
     }
 }
 

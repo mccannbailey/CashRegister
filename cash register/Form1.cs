@@ -22,11 +22,13 @@ namespace cash_register
         double tender;
         string change;
         string tenderinput;
+        string subtotal;
+        string grandtotal;
+        string taxalone;
         int shirtcounter = 0;
         int jeancounter = 0;
         int bandanacounter = 0;
         int timbscounter = 0;
-
 
         public Form1()
         {
@@ -62,15 +64,15 @@ namespace cash_register
             double timbsprice = timbscounter * 100;
 
             double subtotaldouble = shirtprice + jeanprice + bandanaprice + timbsprice;
-            string subtotal = subtotaldouble.ToString("C");
+            subtotal = subtotaldouble.ToString("C");
             subtotallabel.Text = "Subtotal: " + subtotal;
 
             double taxbefore = subtotaldouble * taxmultiplier;
-            string taxalone = taxbefore.ToString("C");
+            taxalone = taxbefore.ToString("C");
             taxlabel.Text = "Tax: " + taxalone;
 
             total = subtotaldouble * tax;
-            string grandtotal = total.ToString("C");
+            grandtotal = total.ToString("C");
             grandtotallabel.Text = "Grand Total: " + grandtotal;
         }
 
@@ -80,9 +82,10 @@ namespace cash_register
             {
                 tenderinput = tenderbox.Text;
                 tender = Convert.ToDouble(tenderinput);
+
                 double totalprice = Convert.ToDouble(total);
                 double changedouble = tender - totalprice;
-                string change = changedouble.ToString("C");
+                change = changedouble.ToString("C");
                 changelabel.Text = "Change: " + change;
             }
             catch
@@ -92,6 +95,48 @@ namespace cash_register
             if (tender < total)
             {
                 changelabel.Text = "Not enough funds!";
+            }
+        }
+
+        private void emptycartbutton_Click(object sender, EventArgs e)
+        {
+            shirtcounter = 0;
+            jeancounter = 0;
+            bandanacounter = 0;
+            timbscounter = 0;
+
+            outputlabel1.Text = "";
+            outputlabel2.Text = "";
+            outputlabel3.Text = "";
+            outputlabel4.Text = "";
+            subtotallabel.Text = "Subtotal: ";
+            taxlabel.Text = "Tax: ";
+            grandtotallabel.Text = "Grand Total: ";
+            changelabel.Text = "";
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Graphics receipt = this.CreateGraphics();
+            Font receiptFont = new Font("Consolas", 11, FontStyle.Regular);
+            SolidBrush receiptBrush = new SolidBrush(Color.Black);
+            if (tender > 0)
+            {
+                receipt.DrawString("The Crip Walk", receiptFont, receiptBrush, 575, 50);
+                receipt.DrawString("White T-Shirt x" + shirtcounter + " @ $5.00/ea", receiptFont, receiptBrush, 530, 80);
+                receipt.DrawString("Jeans         x" + jeancounter + " @ $10.50/ea", receiptFont, receiptBrush, 530, 100);
+                receipt.DrawString("Bandana       x" + bandanacounter + " @ $2.50/ea", receiptFont, receiptBrush, 530, 120);
+                receipt.DrawString("Timbs         x" + timbscounter + " @ $100/ea", receiptFont, receiptBrush, 530, 140);
+
+                receipt.DrawString("Subtotal:       " + subtotal, receiptFont, receiptBrush, 530, 200);
+                receipt.DrawString("Tax:            " + taxalone, receiptFont, receiptBrush, 530, 220);
+                receipt.DrawString("Grand Total:    " + grandtotal, receiptFont, receiptBrush, 530, 240);
+                receipt.DrawString("Tender:         $" + tender, receiptFont, receiptBrush, 530, 260);
+                receipt.DrawString("Change:         " + change, receiptFont, receiptBrush, 530, 280);
+            }
+            else
+            {
+                receipt.DrawString("Please enter tender first" + subtotal, receiptFont, receiptBrush, 530, 220);
             }
         }
     }
