@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace cash_register
@@ -123,15 +124,23 @@ namespace cash_register
             if (tender > 0)
             {
                 receipt.DrawString("The Crip Walk", receiptFont, receiptBrush, 575, 50);
+                Thread.Sleep(500);
                 receipt.DrawString("White T-Shirt x" + shirtcounter + " @ $5.00/ea", receiptFont, receiptBrush, 530, 80);
+                Thread.Sleep(500);
                 receipt.DrawString("Jeans         x" + jeancounter + " @ $10.50/ea", receiptFont, receiptBrush, 530, 100);
+                Thread.Sleep(500);
                 receipt.DrawString("Bandana       x" + bandanacounter + " @ $2.50/ea", receiptFont, receiptBrush, 530, 120);
+                Thread.Sleep(500);
                 receipt.DrawString("Timbs         x" + timbscounter + " @ $100/ea", receiptFont, receiptBrush, 530, 140);
-
+                Thread.Sleep(500);
                 receipt.DrawString("Subtotal:       " + subtotal, receiptFont, receiptBrush, 530, 200);
+                Thread.Sleep(500);
                 receipt.DrawString("Tax:            " + taxalone, receiptFont, receiptBrush, 530, 220);
+                Thread.Sleep(500);
                 receipt.DrawString("Grand Total:    " + grandtotal, receiptFont, receiptBrush, 530, 240);
+                Thread.Sleep(500);
                 receipt.DrawString("Tender:         $" + tender, receiptFont, receiptBrush, 530, 260);
+                Thread.Sleep(500);
                 receipt.DrawString("Change:         " + change, receiptFont, receiptBrush, 530, 280);
             }
             else
